@@ -1,0 +1,11 @@
+;<?php
+;/*
+[configBD]
+db_driver="mysql"
+db_host="localhost"
+db_name="timetracker"
+db_user="admin"
+db_password="admin"
+db_anom_user="PT_anonymous"
+db_anom_password="aoQ9mX7_"
+;?>
