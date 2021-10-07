@@ -6,11 +6,23 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.1.0 (2021-10-07)][0.1.0]
+### Added
+    - Página principal
+    - Estilos en main.css
+
+### Changed
+
+### Fixed
+
+### Removed
+
 ## [Timetracker v0.0.1 (2021-09-28)][0.0.1]
 ### Added
     - Estructura de archivos del proyecto
     - Wiki del proyecto en Github
     - Sección Enlaces de interés en la Wiki del proyecto
+    - Archivo SQL de la BD Timetracker
 
 ### Changed
 
@@ -19,3 +31,4 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 ### Removed
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[0.0.1]: https://github.com/eorhed/timetracker/commit/9de48e474e329aba757e63bc53916bdce9675cca
