@@ -6,6 +6,18 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.1.0 (2021-10-13)][0.2.0]
+### Added
+    - Página de dashboard
+    - Funciones de BD de dashboard_model
+
+### Changed
+
+### Fixed
+
+### Removed
+
+
 ## [Timetracker v0.1.0 (2021-10-07)][0.1.0]
 ### Added
     - Página principal
