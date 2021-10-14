@@ -6,6 +6,16 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.2.1 (2021-10-14)][0.2.1]
+### Added
+    - Añadida la funcionalidad de la clase Sesion
+
+### Changed
+
+### Fixed
+
+### Removed
+
 ## [Timetracker v0.1.0 (2021-10-13)][0.2.0]
 ### Added
     - Página de dashboard
