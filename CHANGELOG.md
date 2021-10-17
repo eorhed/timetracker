@@ -6,6 +6,12 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.3.0 (2021-10-17)][0.3.0]
+### Added
+    - Añadida la funcionalidad de la clase Registro
+    - Añadida la funcionalidad de Usuarios_Model
+
+
 ## [Timetracker v0.2.1 (2021-10-14)][0.2.1]
 ### Added
     - Añadida la funcionalidad de la clase Sesion
