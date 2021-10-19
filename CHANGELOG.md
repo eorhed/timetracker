@@ -6,6 +6,11 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.4.1 (2021-10-19)][0.4.1]
+### Added
+    - Añadida la base de datos de Timetracker (bd.sql)
+
+
 ## [Timetracker v0.4.0 (2021-10-17)][0.4.0]
 ### Added
     - Añadida la vista Login (login.php)
