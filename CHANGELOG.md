@@ -6,10 +6,16 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.4.0 (2021-10-17)][0.4.0]
+### Added
+    - Añadida la vista Login (login.php)
+    - Añadida la funcionalidad de la clase Login_Model (login_model.php)
+
+
 ## [Timetracker v0.3.0 (2021-10-17)][0.3.0]
 ### Added
     - Añadida la funcionalidad de la clase Registro
-    - Añadida la funcionalidad de Usuarios_Model
+    - Añadida la funcionalidad de la clase Usuarios_Model
 
 
 ## [Timetracker v0.2.1 (2021-10-14)][0.2.1]
