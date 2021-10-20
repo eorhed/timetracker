@@ -6,10 +6,13 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
-## [Timetracker v0.4.1 (2021-10-19)][0.4.1]
+## [Timetracker v0.4.2 (2021-10-19)][0.4.2]
 ### Added
-    - Añadida la base de datos de Timetracker (bd.sql)
+    - Añadida la clase Model para poder conectar con la BD desde otras clases
 
+## [Timetracker v0.4.1 (2021-10-19)][0.4.1]
+### Changed
+    - Añadida la base de datos de Timetracker (bd.sql)
 
 ## [Timetracker v0.4.0 (2021-10-17)][0.4.0]
 ### Added
@@ -27,22 +30,10 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 ### Added
     - Añadida la funcionalidad de la clase Sesion
 
-### Changed
-
-### Fixed
-
-### Removed
-
 ## [Timetracker v0.1.0 (2021-10-13)][0.2.0]
 ### Added
     - Página de dashboard
     - Funciones de BD de dashboard_model
-
-### Changed
-
-### Fixed
-
-### Removed
 
 
 ## [Timetracker v0.1.0 (2021-10-07)][0.1.0]
@@ -50,11 +41,6 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
     - Página principal
     - Estilos en main.css
 
-### Changed
-
-### Fixed
-
-### Removed
 
 ## [Timetracker v0.0.1 (2021-09-28)][0.0.1]
 ### Added
@@ -63,11 +49,12 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
     - Sección Enlaces de interés en la Wiki del proyecto
     - Archivo SQL de la BD Timetracker
 
-### Changed
-
-### Fixed
-
-### Removed
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[0.4.1]: https://github.com/eorhed/timetracker/commit/74c047beb4ca30dc49904b20fcc1cba2ecb617ec
+[0.4.0]: https://github.com/eorhed/timetracker/commit/77204e7fde7d5e39717911bde4b2513582c7f5cc
+[0.3.0]: https://github.com/eorhed/timetracker/commit/249f3bd4b9069b3b168d9b733d530951e9bb5fec
+[0.2.1]: https://github.com/eorhed/timetracker/commit/12086a8e60973a3c05c91892c99849289cf9e565
+[0.2.0]: https://github.com/eorhed/timetracker/commit/f0b2591fba8fb344bf936c50c36733f9bb59ebcf
+[0.1.0]: https://github.com/eorhed/timetracker/commit/98d46c8aab9e40d4fb3853bf29126215ef6a04cd
 [0.0.1]: https://github.com/eorhed/timetracker/commit/9de48e474e329aba757e63bc53916bdce9675cca
