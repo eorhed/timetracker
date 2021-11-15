@@ -6,12 +6,16 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
-## [Timetracker v0.5.0 (2021-10-19)][0.5.0]
+## [Timetracker v0.5.1 (2021-11-15)][0.5.1]
+### Added
+    - Añadida la pantalla de Crear Actividad (crear_actividad.php)
+
+## [Timetracker v0.5.0 (2021-11-11)][0.5.0]
 ### Added
     - Añadida la pantalla de Actividades con la lista de actividades del usuario
     - Añadida la clase Actividades_Model (actividades_model.php)
 
-## [Timetracker v0.4.2 (2021-10-19)][0.4.2]
+## [Timetracker v0.4.2 (2021-10-20)][0.4.2]
 ### Added
     - Añadida la clase Model para poder conectar con la BD desde otras clases
 
@@ -19,7 +23,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 ### Changed
     - Añadida la base de datos de Timetracker (bd.sql)
 
-## [Timetracker v0.4.0 (2021-10-17)][0.4.0]
+## [Timetracker v0.4.0 (2021-10-19)][0.4.0]
 ### Added
     - Añadida la vista Login (login.php)
     - Añadida la funcionalidad de la clase Login_Model (login_model.php)
@@ -56,6 +60,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[0.5.0]: https://github.com/eorhed/timetracker/commit/e60213564965631bf8bca9a22399f38796f3fc1d
 [0.4.2]: https://github.com/eorhed/timetracker/commit/74da7e123121ca1292da840c157f1fff69466de5
 [0.4.1]: https://github.com/eorhed/timetracker/commit/74c047beb4ca30dc49904b20fcc1cba2ecb617ec
 [0.4.0]: https://github.com/eorhed/timetracker/commit/77204e7fde7d5e39717911bde4b2513582c7f5cc
