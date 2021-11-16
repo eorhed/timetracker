@@ -6,6 +6,11 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.6.0 (2021-11-16)][0.6.0]
+### Added
+    - Añadida la pantalla de Tareas con la lista de tareas del usuario
+    - Añadida la clase Tareas_Model (tareas_model.php)
+
 ## [Timetracker v0.5.1 (2021-11-15)][0.5.1]
 ### Added
     - Añadida la pantalla de Crear Actividad (crear_actividad.php)
@@ -60,6 +65,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[0.5.1]: https://github.com/eorhed/timetracker/commit/ede95ddc54b737008f926f0a14d558cf7113797c
 [0.5.0]: https://github.com/eorhed/timetracker/commit/e60213564965631bf8bca9a22399f38796f3fc1d
 [0.4.2]: https://github.com/eorhed/timetracker/commit/74da7e123121ca1292da840c157f1fff69466de5
 [0.4.1]: https://github.com/eorhed/timetracker/commit/74c047beb4ca30dc49904b20fcc1cba2ecb617ec
