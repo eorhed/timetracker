@@ -7,7 +7,9 @@ DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `timetracker`.`usuarios` (
     `idusuario` INT(5) NOT NULL AUTO_INCREMENT,
     `usuario` VARCHAR(20) NOT NULL,
-    `clave` VARCHAR(20) NOT NULL,
+    `hash` VARCHAR(128) NOT NULL,
+    `token` VARCHAR(128),
+    `tipo_usuario` VARCHAR(7) NOT NULL DEFAULT 'usuario',
     `fecha_registro` DATE NOT NULL,
     `ultima_sesion` DATETIME NOT NULL,
     `email` VARCHAR(100) NOT NULL,
@@ -24,12 +26,13 @@ CREATE TABLE `timetracker`.`actividades` (
     `comentarios` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
     `fecha_inicio` datetime NOT NULL,
     `fecha_fin` datetime NOT NULL,
+    `precio_x_hora` float NOT NULL,
     `precio_estimado` float NOT NULL,
     `horas_estimadas` int(3) NOT NULL,
     `habilitado` tinyint(4) NOT NULL DEFAULT '1',
 
     PRIMARY KEY (idactividad),
-    FOREIGN KEY (idusuario) REFERENCES usuarios(idusuario)
+    FOREIGN KEY (idusuario) REFERENCES usuarios(idusuario) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS `tareas`;
@@ -41,7 +44,7 @@ CREATE TABLE `timetracker`.`tareas` (
     `precio_x_hora` float NOT NULL DEFAULT '25',
 
     PRIMARY KEY (idtarea),
-    FOREIGN KEY (idactividad) REFERENCES actividades(idactividad)
+    FOREIGN KEY (idactividad) REFERENCES actividades(idactividad) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS `registros`;
@@ -50,18 +53,31 @@ CREATE TABLE `timetracker`.`registros` (
     `idtarea` INT(5) NOT NULL,
     `fecha_inicio` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `fecha_fin` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `duracion` INT(5) NOT NULL,
-    `lugar` VARCHAR(100),
+    `duracion` INT(5) NOT NULL DEFAULT 0,
     `comentarios` VARCHAR(300),
     `descripcion` MEDIUMTEXT,
 
     PRIMARY KEY (idregistro),
-    FOREIGN KEY (idtarea) REFERENCES tareas(idtarea)
+    FOREIGN KEY (idtarea) REFERENCES tareas(idtarea) ON DELETE CASCADE
 );
 
 
-INSERT INTO usuarios (usuario,clave,email,fecha_registro) VALUES ('Eorhed','Eorhed123','eorhed@eorhed.com','2021-10-19');
-INSERT INTO usuarios (usuario,clave,email,fecha_registro) VALUES ('Zephyr','Zephyr123','zephyr@zephyr.com','2021-10-19');
+INSERT INTO usuarios (usuario,clave,email,fecha_registro) VALUES ('Prueba','b7ad9fcc02342f55e13a51b3d894d5b5b5659bef0dfbe65d3704fa54f1d33a6ee3d7c6692b9fd181997a942d4d5366cd54daa3178b30ce9bd8d0d73adddc4552','prueba@prueba.com','2021-10-19');
 
-CREATE USER 'TT_user'@'localhost' IDENTIFIED BY 'KljW92_8';
-GRANT USAGE,SELECT,INSERT,UPDATE,DELETE ON timetracker.* TO 'TT_user'@'localhost';
+
+/* Tipo usuario: Admin */
+GRANT USAGE ON timetracker.* TO 'TT_admin'@'localhost' IDENTIFIED BY PASSWORD '*37A9F979A6B7FF115682F5CDFD22223DE3D21DBD';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'user'@'localhost';
+
+/* Tipo usuario: Usuario */
+GRANT USAGE ON timetracker.* TO 'TT_user'@'localhost' IDENTIFIED BY PASSWORD '*5B277906B210C41D6ABD2D560D44B1E4D32F478B';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'user'@'localhost';
+
+/* Tipo usuario: Anonimo */
+GRANT USAGE ON timetracker.* TO 'TT_anonymous'@'localhost' IDENTIFIED BY PASSWORD '*A0916871DFF69C47D9E85765C5D482BD978D9587';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'user'@'localhost';
+
+

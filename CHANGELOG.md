@@ -6,6 +6,10 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.6.2 (2021-11-17)][0.6.2]
+### Changed
+    - Modificado el archivo bd.sql
+
 ## [Timetracker v0.6.1 (2021-11-16)][0.6.1]
 ### Changed
     - Modificado el archivo header.php
