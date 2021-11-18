@@ -965,7 +965,120 @@ section#trackear label {
   padding: 0;
 }
 
+/* INFORMES */
+section#informes {
+  margin: 50px;
+}
 
+.lista-informes {
+  /* margin: 0 auto;
+    margin-top: 50px;
+    background-color:#fefefe;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px; */
+}
+
+.cabecera {
+  background-color: #00bfa5;
+  border-bottom: 1px solid #ccc;
+  margin: 50px 0px 0px 0px;
+  padding: 20px;
+  color: white;
+  text-shadow: 1px 1px 1px #666;
+  font-size: 1.25rem;
+}
+
+.lista-informes ul {
+  font-size: 1.1rem;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.lista-informes ul>li {
+  padding: 10px 10px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  /* border: 1px solid red; */
+}
+
+.lista-informes ul>li div {
+  display: inline-block;
+  margin-right: 25px;
+  padding: 10px;
+  /* border: 1px solid green; */
+}
+
+.lista-informes ul>li:last-child {
+  border-bottom: 0px;
+  font-style: italic;
+}
+
+.lista-informes ul>li:hover {
+  cursor: pointer;
+  background-color: #00bfa5;
+  color: white;
+  text-shadow: 1px 0px 1px #666;
+}
+
+.cabecera-info {
+  float: right;
+
+  color: white;
+  text-shadow: 0px 1px 0px #333;
+}
+
+.cabecera-info span {
+  background-color: #00bfa5;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.lista-informes ul>li:hover .cabecera-info span {
+  background-color: white;
+  color: #666;
+  text-shadow: 0px;
+}
+
+.lista-informes .actividad {
+  min-width: 50%;
+}
+
+.lista-informes .duracion {
+  /* min-width: 25%; */
+}
+
+.lista-informes .precio {
+  text-align: right;
+  /* min-width: 18%; */
+}
+
+.cabecera-info span {}
+
+.num-resultados {
+  float: right;
+  display: block;
+  margin: 20px;
+  padding: 10px;
+  color: #666;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.graficos-informe div {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 30px;
+  /* width: 500px; */
+}
+
+.graficos-informe h2 {
+  font-size: 1.5rem;
+  color: #00bfa5 !important;
+  padding-bottom: 50px;
+}
 
 @media (max-width: 600px) {
   section#carrusel {

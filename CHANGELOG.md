@@ -6,6 +6,14 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v0.8.0 (2021-11-18)][0.8.0]
+### Added
+    - Añadida la página de Informes y Ver informe (informes.php y registroTiempo_model.php)
+    - Añadida la funcionalidad del modelo de Informes (informes_model.php)
+### Changed
+    - Añadidas reglas CSS en el archivo de estilos (main.css)
+
+
 ## [Timetracker v0.7.0 (2021-11-17)][0.7.0]
 ### Added
     - Añadida la funcionalidad de Trackear (trackear.php y registroTiempo_model.php)
@@ -79,6 +87,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[0.7.0]: https://github.com/eorhed/timetracker/commit/1446a84691553ae9bc82f2a20e3b6be25c78dd11
 [0.6.2]: https://github.com/eorhed/timetracker/commit/74c18975425072ce367dc9759e97ef69bdbb2254
 [0.6.1]: https://github.com/eorhed/timetracker/commit/1ef310be35639799f045cfd86341ea6a0a50fc3d
 [0.6.0]: https://github.com/eorhed/timetracker/commit/bf006a7050e82a394300fb943058188078391903
