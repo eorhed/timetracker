@@ -171,41 +171,86 @@ class Tareas_Model extends Model{
             }
     }
 
-    // function update($tarea)
-    // {
-    //     try {
-    //         $sql = "UPDATE tareas SET idactividad = '{$tarea['idactividadd']}', nombre = '{$tarea['nombre']}', descripcion = '{$tarea['descripcion']}' WHERE idtarea = '{$tarea['idtarea']}'";
-    //         $result =  $this->db->query($sql);
+    function perteneceTareaAUsuario($idtarea, $idusuario)
+    {
+        $idtarea = $this->db->real_escape_string($idtarea);
+        $idusuario = $this->db->real_escape_string($idusuario);
+        
+        try 
+        {
+            $sql = "SELECT * FROM actividades AS A INNER JOIN tareas AS T ON A.idactividad = T.idactividad  WHERE A.idusuario = '{$idusuario}' AND T.idtarea = '{$idtarea}'";
+            $query = $this->db->query($sql);
+        
+            if ($query->num_rows == 1)
+                return true;
+            else
+                return false;
+        }
+        catch (Exception $e) {
+            echo "<div class='info-error'>ERROR:".$e->getMessage()."</div>";
+            die();
+        }
+    }
 
-	// 			if ($result) {
-	// 					$response['success'] = msg_success_editUser_function . "<br />" . $warning;
-	// 				else
-	// 					$response['success'] = msg_success_editUser_function;
-	// 				return $response;
-	// 			} else {
-	// 				$response['error'] = msg_error_editUser_function;
-	// 				return $response;
-	// 			}
+    function getTareaUsuario($idtarea,$idusuario)
+    {
+        $idtarea = $this->db->real_escape_string($idtarea);
+        $idusuario = $this->db->real_escape_string($idusuario);
+        
+        try 
+        {
+            $sql = "SELECT T.* FROM actividades AS A INNER JOIN tareas AS T ON A.idactividad = T.idactividad  WHERE A.idusuario = '{$idusuario}' AND T.idtarea = '{$idtarea}'";
+            $query = $this->db->query($sql);
+        
+            if ($query->num_rows == 1)
+                return $query->fetch_object();
+            else
+                return NULL;
+        }
+        catch (Exception $e) {
+            echo "<div class='info-error'>ERROR:".$e->getMessage()."</div>";
+            die();
+        }
+    }
 
-    //     } catch(Exception $e){
-    //         echo 'ERROR:'.$e->getMessage()."<br>";
-    //         die();
-    //     }
-    // }
+    function editarTarea($tarea)
+    {
+        try 
+        {
+            $idactividad = $this->db->real_escape_string($tarea["idactividad"]);
+            $idtarea = $this->db->real_escape_string($tarea["idtarea"]);
+            $nombre = $this->db->real_escape_string($tarea["nombre"]);
+            $descripcion = $this->db->real_escape_string($tarea["descripcion"]);
 
-    // function delete($tarea)
-    // {
-    //     try
-    //     {
-    //         $sql = "DELETE FROM tarea WHERE idtarea = '{$tarea['idtarea']}'";
-    //         $query = $this->db->query($sql);
+            $sql = "UPDATE tareas SET idactividad = '{$idactividad}', nombre = '{$nombre}', descripcion = '{$descripcion}' WHERE idtarea = '{$idtarea}'";
+            if ($this->db->query($sql))
+                return true;
+	 		else
+                return false;
 
-    //         if ($query)
-    //             return "Ha borrado bien la tarea";
+        } catch(Exception $e){
+            echo 'ERROR:'.$e->getMessage()."<br>";
+            die();
+        }
+    }
 
-    //     } catch(Exception $e){
-    //         echo 'ERROR:'.$e->getMessage()."<br>";
-    //         die();
-    //     }
-    // }
+    function borrarTareaUsuario($idtarea)
+    {
+        // Limpiamos los parametros de entrada
+        $idtarea = $this->db->real_escape_string($idtarea);
+
+        try
+        {
+            $sql = "DELETE FROM tareas WHERE idtarea = '{$idtarea}'";
+            
+            if ($this->db->query($sql))
+                return true;
+            else
+                return false;
+
+        } catch(Exception $e){
+            echo 'ERROR:'.$e->getMessage()."<br>";
+            die();
+        }
+    }
 }
