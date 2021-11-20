@@ -62,22 +62,21 @@ CREATE TABLE `timetracker`.`registros` (
 );
 
 
-INSERT INTO usuarios (usuario,clave,email,fecha_registro) VALUES ('Prueba','b7ad9fcc02342f55e13a51b3d894d5b5b5659bef0dfbe65d3704fa54f1d33a6ee3d7c6692b9fd181997a942d4d5366cd54daa3178b30ce9bd8d0d73adddc4552','prueba@prueba.com','2021-10-19');
 
 
 /* Tipo usuario: Admin */
 GRANT USAGE ON timetracker.* TO 'TT_admin'@'localhost' IDENTIFIED BY PASSWORD '*37A9F979A6B7FF115682F5CDFD22223DE3D21DBD';
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'user'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'TT_admin'@'localhost';
 
 /* Tipo usuario: Usuario */
 GRANT USAGE ON timetracker.* TO 'TT_user'@'localhost' IDENTIFIED BY PASSWORD '*5B277906B210C41D6ABD2D560D44B1E4D32F478B';
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'user'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'TT_user'@'localhost';
 
 /* Tipo usuario: Anonimo */
 GRANT USAGE ON timetracker.* TO 'TT_anonymous'@'localhost' IDENTIFIED BY PASSWORD '*A0916871DFF69C47D9E85765C5D482BD978D9587';
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'user'@'localhost';
+GRANT SELECT, INSERT ON `timetracker`.usuarios TO 'TT_anonymous'@'localhost';
 
 

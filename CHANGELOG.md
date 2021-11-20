@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 Todos los cambios importantes de este proyecto serán documentados en este fichero.
 
 ## [unreleased]
+
+## [Timetracker v1.0.1 (2021-11-20)][1.0.1]
+### Added
+    - Añadido manual de instalación de Timetracker (INSTALLATION.md)
+### Changed
+    - Modificado el script de BD para que añada bien los 3 tipos de usuario BD
+
 ## [Timetracker v1.0.0 (2021-11-20)][1.0.0]
 ### Added
     - Añadida la funcionalidad Ver informe (ver.php)
@@ -107,6 +114,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[1.0.0]: https://github.com/eorhed/timetracker/commit/d64182e06179733acf9e716d00eea4c5c1e76566
 [0.9.0]: https://github.com/eorhed/timetracker/commit/c053de53af304c5fdaf6156d5d17436fce15012c
 [0.8.0]: https://github.com/eorhed/timetracker/commit/b552a5b19c6947ab3909b3523e9b8ae353e793cd
 [0.7.0]: https://github.com/eorhed/timetracker/commit/1446a84691553ae9bc82f2a20e3b6be25c78dd11
