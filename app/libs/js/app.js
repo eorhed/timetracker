@@ -381,3 +381,10 @@ function mostrarGrafico(informeActividad) {
   ];
 }
 
+function mostrarCondicionesUso() {
+  $('#info-condiciones-uso').show();
+}
+
+function cerrarCondicionesUso() {
+  $('#info-condiciones-uso').hide();
+}

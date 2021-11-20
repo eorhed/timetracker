@@ -1,11 +1,18 @@
 <?php require_once "app/views/header.php"; ?>
 <?php require_once "app/config/mensajes.php"; ?>
+
+<?php 
+    require_once "app/views/header.php";
     
+    if (!Session::manageSession() || !Session::isLogged())
+        header("Location: login.php");
+        
+?>
     <main>
         <section id="tareas">
             <div class="container">
                 <h1>Tareas</h1>
-                <form method="POST" action="crear_tarea.php">
+                <div class="lista-tareas">
                     <button class="boton bg-primario btn-pequeno c_blanco negrita floatR">
                         <a href="crear_tarea.php">
                             <img src="app/assets/img/file-earmark-plus2.png" alt="Imagen nuevo archivo">
@@ -14,40 +21,30 @@
                     </button>
                     <div class="clear"></div>
 
-                    <?php 
-                        require_once "app/libs/php/tareas_model.php";
-                        $db = new Tareas_Model("user");
-                        $tareas = $db->getTareasUsuario(Session::get('idusuario'));
-                        
-                    ?>
-                    <div class="tabla">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td width="20">#</td>
-                                    <td>ACTIVIDAD</td>
-                                    <td>TAREA</td>
-                                    <td>DESCRIPCI&Oacute;N</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                    if (isset($tareas) && is_integer($tareas) && $tareas == 0)
-                                        echo "<tr><td colspan='4'>No hay tareas creadas</td></tr>";
-                                    else{
-                                        $cont = 1;
-                                        foreach ($tareas as $tarea) {
-                                            echo "<tr><td width'20'>$cont</td><td width='100'>$tarea->actividad</td><td width='100'>$tarea->nombre</td><td width='200'>$tarea->descripcion</td></tr>";
-                                            
-                                            $cont++;
-                                        }
-                                    }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </form>
-            </div>
+                    <h2>Lista de tareas</h2>
+                
+                    <ul>
+                        <?php
+                            require_once "app/libs/php/tareas_model.php";
+                            $db = new Tareas_Model("user");
+                            $tareas = $db->getTareasUsuario(Session::get('idusuario'));
+
+                            $cont = 1;
+                            if (!empty($tareas))
+                            {
+                                foreach ($tareas as $tarea) {
+                                    
+                                    echo "<li><a href='editar_tarea.php?id={$tarea->idtarea}'><div class='num-actividad'>$cont</div><div class='actividad'>$tarea->nombre</div><div class='cabecera-info'><span>$tarea->actividad</span></div></a></li>";
+
+                                    $cont++;
+                                }
+                            }
+                            else
+                                echo "<li>No hay tareas creadas</li>";
+                        ?>
+                            <div class="num-resultados floatR"><?php echo (isset($tareas) && is_array($tareas)) ? count($tareas) : 0 ?> resultados</div>
+                    </ul>
+                </div>
         </section>
     </main>
 

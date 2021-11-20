@@ -1,4 +1,5 @@
 <?php
+require_once "model.php";
 class Usuarios_Model extends Model{
     
     private $db;
@@ -9,8 +10,6 @@ class Usuarios_Model extends Model{
 
     function getOne($condiciones=NULL)
     {
-            //$usuario = Session::get("usuario");
-
 	    	$sql = "SELECT * FROM usuarios";
 
             if (is_array($condiciones) && count($condiciones))
@@ -31,19 +30,11 @@ class Usuarios_Model extends Model{
 
 			$query =  $this->db->query($sql);
             $results = array();
-            while ($row = $query->fetch_object()){
-                $results[] = $row;
-            }
-            
-            $query->close();
-			
-			if ($results) {
-				$response['success'] = $results;
-				return $response;
-			} else {
-				$response['error'] = "Usuario no encontrado";
-				return $response;
-			}
+
+            if ($query->num_rows == 1)
+                return $query->fetch_object();
+            else
+				return NULL;
     }
 
     function getAll()
@@ -107,7 +98,6 @@ class Usuarios_Model extends Model{
         try {
             $sql = "UPDATE usuarios SET usuario = '{$usuario['usuario']}', clave = '{$usuario['clave']}', email = '{$usuario['email']}' WHERE usuario = '{$usuario['usuario']}'";
             $result =  $this->db->query($sql);
-
 				if ($result) {
                     //Warning si falla la subida de la foto, falta implementar
 					if (isset($warning))
@@ -119,22 +109,23 @@ class Usuarios_Model extends Model{
 					$response['error'] = msg_error_editUser_function;
 					return $response;
 				}
-
         } catch(Exception $e){
             echo 'ERROR:'.$e->getMessage()."<br>";
             die();
         }
     } */
 
-    function delete($usuario)
+    function darDeBajaUsuario($idusuario, $token)
     {
         try
         {
-            $sql = "DELETE FROM usuarios WHERE usuario = '{$usuario['usuario']}'";
+            $sql = "DELETE FROM usuarios WHERE idusuario = '$idusuario' and token = '$token'";
             $query = $this->db->query($sql);
 
             if ($query)
-                return "Ha borrado bien el usuario";
+                return true;
+            else
+                return null;
 
         } catch(Exception $e){
             echo 'ERROR:'.$e->getMessage()."<br>";

@@ -5,8 +5,19 @@ All notable changes to this project will be documented in this file.
 Todos los cambios importantes de este proyecto serán documentados en este fichero.
 
 ## [unreleased]
+## [Timetracker v1.0.0 (2021-11-20)][1.0.0]
+### Added
+    - Añadida la funcionalidad Ver informe (ver.php)
+    - Añadida página Darse de baja y funcionalidad (darse_de_baja.php)
+    - Añadidos los recursos(iconos y fuentes) de la app (app/assets)
+    - Añadido el acuerdo de consentimiento (registro.php)
+    - Añadido ultimos 10 registros de seguimiento en Dashboard (dashboard.php)
 
-## [Timetracker v0.9.0 (2021-11-18)][0.9.0]
+
+### Changed
+    - Retoques en varios archivos
+
+## [Timetracker v0.9.0 (2021-11-19)][0.9.0]
 ### Added
     - Añadida la página de Crear Tarea
     - Añadida la página de Editar Actividad
@@ -96,6 +107,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[0.9.0]: https://github.com/eorhed/timetracker/commit/c053de53af304c5fdaf6156d5d17436fce15012c
 [0.8.0]: https://github.com/eorhed/timetracker/commit/b552a5b19c6947ab3909b3523e9b8ae353e793cd
 [0.7.0]: https://github.com/eorhed/timetracker/commit/1446a84691553ae9bc82f2a20e3b6be25c78dd11
 [0.6.2]: https://github.com/eorhed/timetracker/commit/74c18975425072ce367dc9759e97ef69bdbb2254

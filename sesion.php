@@ -22,6 +22,9 @@ class Session
 	{
 		unset($_SESSION);	// borramos todas las variables $_SESSION
 		session_destroy();	// destruimos la sesión
+
+		setcookie("TT_user", $_COOKIE["TT_user"], time() - 1);
+		setcookie("TT_token", $_COOKIE["TT_token"], time() - 1);
 	}
 
 	public static function manageSession() 
@@ -39,7 +42,30 @@ class Session
 				$_SESSION['created'] = time();  // Actualizar la fecha de creación de la última ID de la sesion
 			}
 			return true;
-		} else  																						//usuario no logueado
+		} else if (isset($_COOKIE["TT_token"]) && (isset($_COOKIE["TT_user"])))
+		{
+			$idusuario = $_COOKIE["TT_user"];
+			$token = $_COOKIE["TT_token"];
+
+			require_once "app/libs/php/login_model.php";
+			$db = new Login_Model("user");
+			$usuario = $db->getUsuarioSiTokenValido($idusuario, $token);
+
+			if ($usuario)
+			{
+				// Regeneramos la sesión manualmente
+				Session::set("logueado", true);
+				Session::set("idusuario", $usuario->idusuario);
+				Session::set("usuario", $usuario->usuario);
+                Session::set("email", $usuario->email);
+				Session::set("foto", $usuario->foto);
+                Session::set("tipo_usuario", $usuario->tipo_usuario);
+				Session::set("created", time());
+				Session::set("last_activity", time());
+				
+				return true;
+			}
+		} else																					//usuario no logueado
 			return false;
 		
 

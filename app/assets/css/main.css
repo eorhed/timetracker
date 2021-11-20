@@ -1055,6 +1055,8 @@ section#informes {
   /* min-width: 18%; */
 }
 
+
+
 .cabecera-info span {}
 
 .num-resultados {
@@ -1078,6 +1080,41 @@ section#informes {
   font-size: 1.5rem;
   color: #00bfa5 !important;
   padding-bottom: 50px;
+}
+
+
+/* DARSE DE BAJA */
+section#darse-de-baja {}
+
+section#darse-de-baja ul {
+  margin-top: 50px;
+}
+
+section#darse-de-baja ul {
+  border: 1px solid #ccc;
+}
+
+section#darse-de-baja ul>li {
+  padding: 20px;
+}
+
+section#darse-de-baja h3 {
+  margin-top: 50px;
+}
+
+.opciones-baja {
+  margin-top: 50px;
+}
+
+.opciones-baja ul {
+  margin: 0 auto;
+  border: 0px !important;
+  text-align: center;
+}
+
+.opciones-baja ul>li {
+  display: inline-block;
+  margin-right: 20px;
 }
 
 @media (max-width: 600px) {
