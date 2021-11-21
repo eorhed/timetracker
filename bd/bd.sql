@@ -77,6 +77,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON `timetracker`.* TO 'TT_user'@'localhost'
 /* Tipo usuario: Anonimo */
 GRANT USAGE ON timetracker.* TO 'TT_anonymous'@'localhost' IDENTIFIED BY PASSWORD '*A0916871DFF69C47D9E85765C5D482BD978D9587';
 
-GRANT SELECT, INSERT ON `timetracker`.usuarios TO 'TT_anonymous'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON `timetracker`.usuarios TO 'TT_anonymous'@'localhost';
 
 
