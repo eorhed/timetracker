@@ -29,8 +29,8 @@
         // if ($respuesta["success"])
             $id = $db->insertarActividadBD($actividad);
 
-        if ($id)
-            header("Location: actividades.php");
+        if (isset($id))
+            echo "<div class='info-success'>La actividad ha sido creada correctamente</div>";
         else
             echo "<div class='info-error'>No se ha podido insertar la actividad. Int&eacute;ntalo m&aacute;s tarde</div>";
             

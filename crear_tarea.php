@@ -24,8 +24,11 @@
         // Validar datos
         // $respuesta = $db->validarActividad($actividad);
         // if ($respuesta["success"])
-            $db->insertarTareaBD($tarea);
-            
+        $id = $db->insertarTareaBD($tarea);
+        if (isset($id))
+            echo "<div class='info-success'>Tarea creada correctamente</div>";
+        else
+            echo "<div class='info-success'>Se ha producido un error al insertar la tarea. Int&eacute;ntalo m&aacute;s tarde</div>";
     }
     
 ?>

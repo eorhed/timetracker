@@ -6,6 +6,10 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v1.0.4 (2021-11-21)][1.0.4]
+### Changed
+    - Al crear una tarea o actividad ahora se muestra un mensaje de información
+
 ## [Timetracker v1.0.3 (2021-11-21)][1.0.3]
 ### Changed
     - Modificado el formato de fecha al mostrar fechas en dashboard.php
@@ -138,6 +142,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[1.0.3]: https://github.com/eorhed/timetracker/commit/ec74f69fa4e191e9bfb68997779f3313acd7d2f7
 [1.0.2]: https://github.com/eorhed/timetracker/commit/1c9404ed6a6c4e422eb324342ca2ca94836f2adb
 [1.0.1]: https://github.com/eorhed/timetracker/commit/41b6fe6b24b398cf3c3848c7ac2ec018295a2896
 [1.0.0]: https://github.com/eorhed/timetracker/commit/d64182e06179733acf9e716d00eea4c5c1e76566
