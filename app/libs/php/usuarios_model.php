@@ -93,28 +93,7 @@ class Usuarios_Model extends Model{
         }
     }
 
-    /* function update($usuario)
-    {
-        try {
-            $sql = "UPDATE usuarios SET usuario = '{$usuario['usuario']}', clave = '{$usuario['clave']}', email = '{$usuario['email']}' WHERE usuario = '{$usuario['usuario']}'";
-            $result =  $this->db->query($sql);
-				if ($result) {
-                    //Warning si falla la subida de la foto, falta implementar
-					if (isset($warning))
-						$response['success'] = msg_success_editUser_function . "<br />" . $warning;
-					else
-						$response['success'] = msg_success_editUser_function;
-					return $response;
-				} else {
-					$response['error'] = msg_error_editUser_function;
-					return $response;
-				}
-        } catch(Exception $e){
-            echo 'ERROR:'.$e->getMessage()."<br>";
-            die();
-        }
-    } */
-
+    
     function darDeBajaUsuario($idusuario, $token)
     {
         try
@@ -132,5 +111,50 @@ class Usuarios_Model extends Model{
             die();
         }
     }
-    
+
+    function getUsuarios()
+    {
+        try
+        {
+            $sql = "SELECT idusuario, email, usuario  FROM usuarios WHERE tipo_usuario = 'usuario'";
+            $query = $this->db->query($sql);
+
+            $usuarios = array();
+            while ($fila = $query->fetch_object()){
+                $usuarios[] = $fila;
+            }
+            
+            $query->close();
+			
+			if ($usuarios) {
+				return $usuarios;
+			} else {
+				return 0;
+			}
+
+        } catch(Exception $e){
+            echo 'ERROR:'.$e->getMessage()."<br>";
+            die();
+        }
+    }
+
+    function borrarUsuario($idusuario)
+    {
+        try {
+            // Limpiamos el parametro pasado a la función
+            $idusuario = $this->db->real_escape_string($idusuario);
+
+            $sql = "DELETE FROM usuarios WHERE idusuario = '$idusuario'";
+            $result =  $this->db->query($sql);
+				
+            if ($result) 
+                return true;
+			else 
+				return false;
+				
+        } catch(Exception $e){
+            echo 'ERROR:'.$e->getMessage()."<br>";
+            die();
+        }
+    }
 }

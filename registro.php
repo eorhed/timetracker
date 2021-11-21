@@ -1,5 +1,7 @@
 <?php
-    require_once "app/views/header.php"; 
+    require_once "app/views/header.php";
+
+    // Controla la sesión de usuario. Si ya está logueado o tiene la cookie le devuelve a dashboard
     if (Session::manageSession())
         header("Location: dashboard.php")
 ?>
@@ -40,9 +42,6 @@
 
                 if (isset($usuario))
                 {
-                    // echo "<pre>";
-                    // var_dump($usuario);
-                    // echo "</pre>";
                     if (is_object($usuario))
                     {
                         Session::set("logueado", true);
@@ -74,7 +73,7 @@
                         header("Location: dashboard.php");
                     }
                     else 
-                        echo "Fallo en la BD"; //INDICAR FALLO EN EL PROCESO DE LOGUEO
+                        echo "<div class='info-error'>Fallo en la BD</div>"; //INDICAR FALLO EN EL PROCESO DE LOGUEO
                 }
                 else
                     Session::destroy();
@@ -196,49 +195,4 @@
         </div>
     </section>
 </main>
-
-<script>
-    function comprobarDatos() {
-        var pEmail = document.formulario.email.value;
-        var pPassword = document.formulario.password.value;
-        var pUsuario = document.formulario.usuario.value;
-
-        if (comprobarEmail(pEmail) && comprobarContra(pPassword) && comprobarUsuario(pUsuario)) {
-            //window.alert("Datos correctamente introducidos");
-            document.formulario.submit();
-        }
-    }
-
-    function comprobarUsuario(pUsuario) {
-        //Comprobación nombre correcto
-        if (!(/[A-Za-z0-9]{1,20}$/).test(pUsuario)) {
-            window.alert("Nombre introducido incorrectamente.");
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function comprobarEmail(pEmail) {
-        //Comprobación email correcto
-        if (!(/^[a-zA-Z0-9._]{2,}@[a-z]{2,}[.][a-z]{1,}$/.test(pEmail))) {
-            window.alert("Email introducido incorrectamente.");
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function comprobarContra(pContra) {
-        //Comprobación de contraseña
-        if (!(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}/).test(pContra)) {
-            window.alert(
-                "La contraseña debe contenter al menos 8 caracteres, una letra mayúscula, una minúscula y un caracter especial (*-+/)"
-                );
-            return false;
-        } else {
-            return true;
-        }
-    }
-</script>
 <?php require_once "app/views/footer.php"; ?>

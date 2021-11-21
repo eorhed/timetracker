@@ -1,5 +1,10 @@
 <?php
 require_once "model.php";
+
+/*
+*   Clase encargada de realizar operaciones en la BD relacionadas con las pantallas de Actividades
+*   (actividades.php, crear-actividad.php, editar-actividad.php)
+*/
 class Actividades_Model extends Model{
     
     private $db;
@@ -8,6 +13,9 @@ class Actividades_Model extends Model{
 		$this->db = parent::__construct($typeUser);
 	}
 
+    /*
+    *   Función que dadas unas condiciones pasadas en el array $condiciones devuelve una actividad de la tabla actividades
+    */
     function getOne($condiciones=NULL)
     {
 
@@ -52,6 +60,9 @@ class Actividades_Model extends Model{
 			}
     }
 
+    /*
+    *   Función que devuelve todas las actividades de la tabla actividades de la BD
+    */
     function getAll()
     {
         $sql = "SELECT * FROM actividades";
@@ -72,6 +83,9 @@ class Actividades_Model extends Model{
 			}
     }
 
+    /*
+    *   Función que dado un array con los datos de la actividad, la inserta en la tabla actividades de la BD
+    */
     function insertarActividadBD($actividad){
         
         try
@@ -88,12 +102,12 @@ class Actividades_Model extends Model{
             echo 'ERROR:'.$e->getMessage()."<br>";
             die();
 
-            // //Manejo SIN excepciones (normal) de errores mysqli
-            // if ($this->db->error)                        
-            //     echo $this->db->error."<br>";
         }
     }
 
+    /*
+    *   Función que actualiza la actividad con los datos de la actividad (en forma de array asociativo) pasados como parametro en la tabla actividades de la BD
+    */
     function editarActividad($actividad)
     {
         try
@@ -111,6 +125,9 @@ class Actividades_Model extends Model{
         }
     }
 
+    /*
+    *   Función que dado un id de usuario devuelve sus actividades
+    */
     function getActividadesUsuario($idusuario){
         try{
             $sql = "SELECT * FROM actividades WHERE idusuario = '{$idusuario}' ORDER BY idactividad ASC;";
@@ -132,7 +149,9 @@ class Actividades_Model extends Model{
 	    
     }
 
-
+    /*
+    *   Función que dado un array con los datos de la actividad obtenidos del formulario, los valida
+    */
     function validarActividad($actividad)
     {
         $actividad["actividad"] = isset($actividad['actividad']) ? mysqli::real_escape_string($actividad["actividad"]) : false;
@@ -173,7 +192,10 @@ class Actividades_Model extends Model{
             }
     }
 
-    // Para la página de Trackear.php
+    /*
+    *   Función que dado un id de usuario devuelve la primera actividad que tenga tareas asociadas a este del usuario
+    *   Para la página de Trackear.php para que solo se carguen en el desplegable actividades con tareas y pueda ser "trackeable"
+    */
     function getPrimeraActividadConTareasUsuario($idusuario)
     {
         try
@@ -199,6 +221,9 @@ class Actividades_Model extends Model{
         }
     }
 
+    /*
+    *   Función que dado un id de actividad y un id de usuario devuelve esa actividad de ese usuario
+    */
     function getActividadUsuario($idactividad, $idusuario)
     {
         // Limpiamos las variables para su uso en la consulta SQL
@@ -228,9 +253,9 @@ class Actividades_Model extends Model{
 
 
     /*
-        Dado un id de actividad y un idusuario borrará la actividad de dicho usuario
-        de la tabla actividades de la BD, al borrar la actividad borrará en cascada
-        las filas con referencias a esta actividad que tenga en las otras tablas (tareas y registros)
+     *   Dado un id de actividad y un idusuario borrará la actividad de dicho usuario
+     *   de la tabla actividades de la BD, al borrar la actividad borrará en cascada
+     *   las filas con referencias a esta actividad que tenga en las otras tablas (tareas y registros)
      */
     function borrarActividadUsuario($idactividad, $idusuario)
     {

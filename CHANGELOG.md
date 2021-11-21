@@ -6,6 +6,10 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v1.0.2 (2021-11-21)][1.0.2]
+### Added
+    - Todas las funciones estan documentadas con su correspondiente comentario
+
 ## [Timetracker v1.0.1 (2021-11-20)][1.0.1]
 ### Added
     - Añadido manual de instalación de Timetracker (INSTALLATION.md)
@@ -114,6 +118,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[1.0.1]: https://github.com/eorhed/timetracker/commit/41b6fe6b24b398cf3c3848c7ac2ec018295a2896
 [1.0.0]: https://github.com/eorhed/timetracker/commit/d64182e06179733acf9e716d00eea4c5c1e76566
 [0.9.0]: https://github.com/eorhed/timetracker/commit/c053de53af304c5fdaf6156d5d17436fce15012c
 [0.8.0]: https://github.com/eorhed/timetracker/commit/b552a5b19c6947ab3909b3523e9b8ae353e793cd

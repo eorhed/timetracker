@@ -1,5 +1,9 @@
 <?php
 require_once "model.php";
+
+/*
+*   Función que dado un id de usuario devuelve sus actividades
+*/
 class Login_Model extends Model{
     
     private $db;
@@ -8,6 +12,11 @@ class Login_Model extends Model{
 		$this->db = parent::__construct($typeUser);
 	}
 
+    /*
+    *   Función que dado un email y una clave busca el usuario
+    *   Si existe, quiere decir que el usuario se ha identificado correctamente
+    *   Si no se devuelve null y el controlador le mostrará el error
+    */
     function identificar($email, $clave)
     {
         try{
@@ -34,6 +43,9 @@ class Login_Model extends Model{
         }
     }
 
+    /*
+    *   Función que dado un id de usuario y un token inserta el token de la cookie en este usuario en la BD
+    */
     function insertarToken($idusuario, $token)
     {
         try {
@@ -47,6 +59,9 @@ class Login_Model extends Model{
         }
     }
 
+    /*
+    *   Función que dado un id de usuario y un token devuelve el usuario con ese token y esa id
+    */
     function getUsuarioSiTokenValido($idusuario, $token)
     {
         try {
@@ -65,10 +80,13 @@ class Login_Model extends Model{
         }
     }
 
+    /*
+    *   Función que devuelve todos los usuarios de la tabla usuarios
+    */
     function getAll()
     {
         try{
-            $sql = "SELECT * FROM usuarios";
+            $sql = "SELECT * FROM usuarios WHERE tipo_usuario = 'usuario'";
             $query =  $this->db->query($sql);
         
             $results = array();

@@ -1,23 +1,41 @@
 <?php
-
+/*
+*   Clase encargada de realizar gestión de la sesión en PHP
+*	Permite iniciar la sesión, destruirla, decidir que hacer tanto si existe una sesión abierta como no,
+*   comprobar si el usuario está logueado o si es administrador
+*/
 class Session
 {
+	/*
+	*   Función que inicializa la sesión en PHP
+	*/
 	public static function init()
 	{
 		session_start();
 	}
 
+	/*
+	*   Función que dado un indice y un valor
+	*   almacena en la variable global S_SESSION el valor en el indice pasado como parametro
+	*/
 	public static function set($key,$value)
 	{
 		$_SESSION[$key] = $value;
 	}
 
+	/*
+	*   Función que dado un indice pasado como parametro
+	*	devuelve el valor del array $_SESSION asociado a ese indice de array
+	*/
 	public static function get($key)
 	{
 		if (isset($_SESSION[$key]))
 			return $_SESSION[$key];
 	}
 
+	/*
+	*   Función que destruye la sesión PHP existente y borra las cookies creadas
+	*/
 	public static function destroy()
 	{
 		unset($_SESSION);	// borramos todas las variables $_SESSION
@@ -27,6 +45,13 @@ class Session
 		setcookie("TT_token", $_COOKIE["TT_token"], time() - 1);
 	}
 
+	/*
+	*   Función que gestiona la sesión existente
+	*	Si ha pasado más de 1 hora sin regenerar la sesión (recargar la página) la sesión se destruye
+	*   Si no ha pasado más de 1 hora y se ha recargado la página se regenera la sesió actual
+	*	Si no hay sesión pero se encuentra la cookie del usuario almacenada en el navegador, se crea la sesión manualmente
+	*	Si no, el usuario no está logueado y se devuelve false, lo que conllevará a la correspondiente redirección a la página de login
+	*/
 	public static function manageSession() 
 	{
 		if (!empty($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 3600)) {			//usuario logueado con la sesion expirada
@@ -71,46 +96,20 @@ class Session
 
 	}
 
+	/*
+	*   Función que comprueba si el usuario está logueado, es decir si existen en la variable $_SESSION sus datos
+	*/
 	static function isLogged() 
 	{
 		if ($_SESSION["logueado"] = true && !empty($_SESSION['idusuario']) && !empty($_SESSION['usuario']) && !empty($_SESSION['email'])) 
-		{
 			return true;
-			// // Leemos los datos para conectar a BD
-			// $config = parse_ini_file("application/config/database.ini.php"); 
-			// $host = $config["db_driver"].":host=".$config["db_host"].";dbname=".$config["db_name"];
-			
-			// // Conectamos a la BD usando PDO
-			// try
-			// {
-			// 	$db = new PDO($host,$config["db_anom_user"],$config["db_anom_password"]);  
-				
-			// 	// Comprobamos que el usuario no se ha borrado durante la sesión
-			// 	$sql = "SELECT * FROM usuarios WHERE usuario = '$_SESSION[usuario]'";
-			// 	$stmt = $db->prepare($sql);
-			// 	$stmt->execute();
-
-			// 	$result = $stmt->fetchAll();
-
-			// 	if ($result) 
-			// 		return true;	// no se ha borrado
-			// 	else 
-			// 	{
-			// 		//se ha borrado
-			// 		session_unset();     // borramos todas las variables $_SESSION
-			// 		session_destroy();   // destruimos la sesión
-			// 		return false;
-			// 	} 
-			// }
-			// catch (PDOException $pdoEx)
-			// {
-			// 	echo "Database Error .. Details :<br /> {$pdoEx->getMessage()}";
-			// }
-		}
 		else 
 			return false;
 	}
 
+	/*
+	*   Función que comprueba si el usuario es administrador del sistema
+	*/
 	static function isAdmin(){
 		return $_SESSION["tipo_usuario"] == "Admin";
 	}

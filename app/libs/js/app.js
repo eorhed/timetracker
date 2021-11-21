@@ -1,3 +1,47 @@
+// Validacion formulario registro usuario
+function comprobarDatos() {
+  var pEmail = document.formulario.email.value;
+  var pPassword = document.formulario.password.value;
+  var pUsuario = document.formulario.usuario.value;
+
+  if (comprobarEmail(pEmail) && comprobarContra(pPassword) && comprobarUsuario(pUsuario)) {
+    //window.alert("Datos correctamente introducidos");
+    document.formulario.submit();
+  }
+}
+
+function comprobarUsuario(pUsuario) {
+  //Comprobación nombre correcto
+  if (!(/[A-Za-z0-9]{1,20}$/).test(pUsuario)) {
+    window.alert("Nombre introducido incorrectamente.");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function comprobarEmail(pEmail) {
+  //Comprobación email correcto
+  if (!(/^[a-zA-Z0-9._]{2,}@[a-z]{2,}[.][a-z]{1,}$/.test(pEmail))) {
+    window.alert("Email introducido incorrectamente.");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function comprobarContra(pContra) {
+  //Comprobación de contraseña
+  if (!(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}/).test(pContra)) {
+    window.alert(
+      "La contraseña debe contenter al menos 8 caracteres, una letra mayúscula, una minúscula y un caracter especial (*-+/)"
+    );
+    return false;
+  } else {
+    return true;
+  }
+}
+
 function actualizarPrecioHora() {
 
   precio_hora = document.getElementById('precio_x_hora').value;
@@ -102,8 +146,9 @@ function comenzarSeguimiento() {
   $(".btn-comenzar").prop("disabled", true);
   sesion = setInterval(seguimiento, 1000);
   // $(".btn-pausar").html("<span class='glyphicon glyphicon-pause'></span> Pausar");
-  $(".btn-pausar").show();
-  $(".btn-guardar").show();
+  $(".btn-nuevo-seguimiento").hide();
+  $(".btn-pausar-tiempo").show();
+  $(".btn-guardar-tiempo").show();
   $("#info").empty();
 }
 
@@ -139,11 +184,14 @@ function guardarSeguimiento() {
   guardar_sesion_tarea();
   $(".marcador").html("00:00:00");
   $(".btn-pausar-tiempo").hide();
-  $(".btn-reproducir-tiempo").show();
+  $(".btn-reproducir-tiempo").hide();
+  $(".btn-guardar-tiempo").hide();
   $(".btn-pausar").hide();
   $(".btn-guardar").hide();
   $(".btn-comenzar").prop("disabled", false);
   $(".btn-comenzar2").show();
+
+  $(".btn-nuevo-seguimiento").show();
 }
 
 /**
@@ -387,4 +435,14 @@ function mostrarCondicionesUso() {
 
 function cerrarCondicionesUso() {
   $('#info-condiciones-uso').hide();
+}
+
+function borrarUsuario(idusuario)
+{
+  if (confirm("¿Estás seguro de borrar este usuario?"))
+  {
+    document.getElementById("idusuario").value = idusuario;
+    
+    document.formulario.submit();
+  }
 }

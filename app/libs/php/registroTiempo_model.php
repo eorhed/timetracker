@@ -1,5 +1,9 @@
 <?php
 require_once "model.php";
+
+/*
+*   Clase encargada de gestionar todas las operaciones relacionadas con los registros de seguimiento de tiempo de la pantalla Trackear
+*/
 class RegistroTiempo_Model extends Model{
     
     private $db;
@@ -8,6 +12,9 @@ class RegistroTiempo_Model extends Model{
 		$this->db = parent::__construct($typeUser);
 	}
 
+    /*
+    *   Función que dado un array con las condiciones devuelve el registro de seguimiento de la tabla registros
+    */
     function getOne($condiciones=NULL)
     {
 
@@ -50,6 +57,9 @@ class RegistroTiempo_Model extends Model{
 			}
     }
 
+    /*
+    *   Función que devuelve todos los registros de seguimiento almacenados en la BD
+    */
     function getAll()
     {
         $sql = "SELECT * FROM registros";
@@ -70,6 +80,10 @@ class RegistroTiempo_Model extends Model{
 			}
     }
 
+    /*
+    *   Función que dado un array con los datos del registro de seguimiento inserta el registro (trackeo de tiempo de la actividad-tarea) 
+    *   en la tabla registros de la BD
+    */
     function insertarRegistroSeguimientoBD($registro){
         
         // $registro["fecha_inicio"]   18/11/2021 01:12:02
@@ -97,9 +111,13 @@ class RegistroTiempo_Model extends Model{
         }
     }
 
+    /*
+    *   Función que dado un id de usuario y un numero de registros
+    *   devuelve los ultimos registros de seguimiento del usuario, tantos como se indique en numRegistros
+    */
     function getRegistrosSeguimientoUsuario($idusuario, $numRegistros = null)
     {
-        $sql =  "SELECT A.actividad, T.nombre, R.fecha_inicio, R.fecha_fin, R.duracion FROM actividades AS A INNER JOIN tareas AS T INNER JOIN registros AS R ON A.idactividad = T.idactividad AND T.idtarea = R.idtarea WHERE A.idusuario = '$idusuario'";
+        $sql =  "SELECT A.actividad, T.nombre, R.fecha_inicio, R.fecha_fin, R.duracion FROM actividades AS A INNER JOIN tareas AS T INNER JOIN registros AS R ON A.idactividad = T.idactividad AND T.idtarea = R.idtarea WHERE A.idusuario = '$idusuario' ORDER BY R.idregistro DESC";
         
         if (isset($numRegistros))
             $sql .= " LIMIT $numRegistros";

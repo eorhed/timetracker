@@ -61,7 +61,7 @@ CREATE TABLE `timetracker`.`registros` (
     FOREIGN KEY (idtarea) REFERENCES tareas(idtarea) ON DELETE CASCADE
 );
 
-
+INSERT INTO usuarios (usuario,email,hash,tipo_usuario) VALUES ('admin', 'admin@admin.com','b164e180d26b48f714a0cb62df77d984490baca3bc19e82b9ba178f3f8f463c4c9aff9f245ac91202f6e7a29addb588925453259415c35ad253885cb07afcb87','admin');
 
 
 /* Tipo usuario: Admin */

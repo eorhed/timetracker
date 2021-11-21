@@ -1,5 +1,10 @@
 <?php
 require_once "model.php";
+
+/*
+*   Clase encargada de gestionar las operaciones en la BD relacionadas con la pantalla Tareas y la tabla Tareas
+*   (tareas.php, crear_tarea.php, editar_tarea.php)
+*/
 class Tareas_Model extends Model{
     
     private $db;
@@ -8,6 +13,9 @@ class Tareas_Model extends Model{
 		$this->db = parent::__construct($typeUser);
 	}
 
+    /*
+    *   Función que dadas unas condiciones en forma de array devuelve una tarea en concreto según esas condiciones pasadas
+    */
     function getOne($condiciones=NULL)
     {
 
@@ -50,6 +58,9 @@ class Tareas_Model extends Model{
 			}
     }
 
+    /*
+    *   Función que devuelve todos las tareas de la tabla Tareas de la BD
+    */
     function getAll()
     {
         $sql = "SELECT * FROM tareas";
@@ -70,6 +81,9 @@ class Tareas_Model extends Model{
 			}
     }
 
+    /*
+    *   Función que dado un array con los datos de la tarea, inserta en la BD dicha tarea
+    */
     function insertarTareaBD($tarea){
         
         try
@@ -94,6 +108,9 @@ class Tareas_Model extends Model{
         }
     }
 
+    /*
+    *   Función que dado un id de usuario pasado como parametro devuelve las tareas de dicho usuario
+    */
     function getTareasUsuario($idusuario)
     {
         try
@@ -117,6 +134,9 @@ class Tareas_Model extends Model{
 	    
     }
 
+    /*
+    *   Función que dada una id de actividad, devuelve las tareas asociadas a esa actividad
+    */
     function getTareasActividad($idactividad)
     {
         try 
@@ -139,7 +159,9 @@ class Tareas_Model extends Model{
         }
     }
 
-
+    /*
+    *   Función que valida los campos del formulario de crear/editar tarea
+    */
     function validarTarea($tarea)
     {
         $tarea['idactividad'] = isset($tarea['idactividad']) ? mysqli::real_escape_string($tarea['idactividad']) : false;
@@ -171,6 +193,9 @@ class Tareas_Model extends Model{
             }
     }
 
+    /*
+    *   Función que devuelve si esa tarea, pasada su id como parámetro, pertenece a ese usuario pasado también como parametro
+    */
     function perteneceTareaAUsuario($idtarea, $idusuario)
     {
         $idtarea = $this->db->real_escape_string($idtarea);
@@ -192,6 +217,9 @@ class Tareas_Model extends Model{
         }
     }
 
+    /*
+    *   Función que dada un id de tarea y un id de usuario, devuelve todos los datos de esa tarea asociada a ese usuario
+    */
     function getTareaUsuario($idtarea,$idusuario)
     {
         $idtarea = $this->db->real_escape_string($idtarea);
@@ -213,6 +241,9 @@ class Tareas_Model extends Model{
         }
     }
 
+    /*
+    *   Función que con unos datos de la tarea pasados en forma de array $tarea actualiza dicha fila en la tabla tareas de la BD
+    */
     function editarTarea($tarea)
     {
         try 
@@ -234,6 +265,9 @@ class Tareas_Model extends Model{
         }
     }
 
+    /*
+    *   Función que dada una id de tarea que pertenece al usuario identificado, la borra de la BD
+    */
     function borrarTareaUsuario($idtarea)
     {
         // Limpiamos los parametros de entrada

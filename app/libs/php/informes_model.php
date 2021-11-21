@@ -1,5 +1,9 @@
 <?php
 require_once "model.php";
+
+/*
+*   Clase Informes_Model que se encarga de todas las operaciones en la BD relacionadas con la pantalla de Informes de la app
+*/
 class Informes_Model extends Model{
     
     private $db;
@@ -8,6 +12,9 @@ class Informes_Model extends Model{
 		$this->db = parent::__construct($typeUser);
 	}
 
+    /*
+    *   Función que dado un id de usuario devuelve sus actividades
+    */
     function getActividadesUsuario($idusuario){
         try{
             $sql = "SELECT * FROM actividades WHERE idusuario = '{$idusuario}' ORDER BY idactividad ASC;";
@@ -29,6 +36,9 @@ class Informes_Model extends Model{
 	    
     }
 
+    /*
+    *   Función que dado un id de usuario devuelve actividades que tengas registros de seguimiento asociados
+    */
     function getActividadesUsuarioConRegistro($idusuario){
         try
         {
@@ -53,7 +63,10 @@ class Informes_Model extends Model{
             die();
         }
     }
-
+    
+    /*
+    *   Función que dada una duracion en segundos devuelve la duracion en formato horas, minutos y segundos
+    */
     static function getHorasMinutosSegundos($duracion_segs)
     {
         $horas = floor($duracion_segs / 3600);
@@ -64,6 +77,9 @@ class Informes_Model extends Model{
         return $horas . "h " . $minutos . "m " . $segundos . "s";
     }
 
+    /*
+    *   Función que dado un id de usuario y un id de actividad devuelve las tareas relacionadas con esa actividad
+    */
     function getTareasActividadUsuario($idusuario, $idactividad)
     {
         try

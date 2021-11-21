@@ -1,7 +1,7 @@
 <?php 
     require_once "sesion.php";
-    Session::init();
-    Session::destroy();
+    Session::init();    
+    Session::destroy(); // Destruimos la sesión existente
 
     require_once "app/views/header.php";
 ?>

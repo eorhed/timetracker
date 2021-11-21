@@ -1,6 +1,7 @@
 <?php require_once "app/views/header.php"; ?>
 
 <?php 
+    // Controla la sesión de usuario. Si no está logueado o no tiene cookie le devuelve a login
     if (!Session::manageSession() || !Session::isLogged())
         header("Location: login.php");
 ?>

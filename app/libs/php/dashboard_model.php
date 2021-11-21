@@ -9,6 +9,9 @@ class Dashboard_Model extends Model{
 		$this->db = parent::__construct($typeUser);
 	}
 
+    /*
+    *   Función que dado un id de usuario devuelve el numero total de actividades del usuario
+    */
     function getNumTotalActividadesUsuario($idusuario)
     {
         
@@ -30,6 +33,10 @@ class Dashboard_Model extends Model{
 			}
 
     }
+
+    /*
+    *   Función que dado un id de usuario devuelve el numero total de tareas de ese usuario
+    */
     function getNumTotalTareasUsuario($idusuario)
     {
 
@@ -53,6 +60,9 @@ class Dashboard_Model extends Model{
 
     }
 
+    /*
+    *   Función que dado un id de usuario devuelve el numero de horas acumuladas de los registros de seguimiento de ese usuario
+    */
     function getNumTotalHorasRegistradasUsuario($idusuario){
         
 
@@ -81,6 +91,11 @@ class Dashboard_Model extends Model{
         }
 
     }
+
+    /*
+    *   Función que dado un id de usuario devuelve el total de dinero generado en las actividades que tienen un precio_x_hora > 0.
+    *   es decir actividades lucrativas
+    */
     function getTotalDineroGenerado($idusuario){
 
 

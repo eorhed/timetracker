@@ -40,13 +40,13 @@ ini_set('display_startup_errors', TRUE);
                             <li><a href="tareas.php">Tareas</a></li>
                             <li><a href="trackear.php">Trackear</a></li>
                             <li><a href="informes.php">Informes</a></li>
-                            <li><a href="contacto.php">Contacto</a></li>
+                            <?php if (Session::isAdmin()):?>
+                                <li><a href="usuarios.php">Administrar</a></li>
+                            <?php endif; ?>
+                            <!-- <li><a href="contacto.php">Contacto</a></li> -->
                         </ul>
                         <ul class="menu-prefs-usuario">
                             <li><a href="darse_de_baja.php"><span class="usuario-logueado"><img src="app/assets/img/<?php echo Session::get('foto');?>" alt="foto-usuario"><?php echo Session::get('usuario');?></span></a></li>
-                            <?php if (Session::isAdmin()):?>
-                                <li><a href="#">Administrar</a></li>
-                            <?php endif; ?>
                             <li><a href="salir.php"><img src="app/assets/img/box-arrow-right.svg" alt="Icono de salir"> Salir</a></li>
                         </ul>
                     <?php endif; ?>

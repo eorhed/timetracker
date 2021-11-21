@@ -1,5 +1,8 @@
 <?php
 
+/*
+*   Script utilizado para cargar Tareas con javascript asincrono en la pantalla de Trackear.php
+*/
 $response['exito'] = true;
 $response['datos'] = $_POST['idactividad'];
 

@@ -1,6 +1,8 @@
 <?php
 
-
+/*
+*   Script utilizado para insertar en la BD los registros de seguimiento utilizado desde la pantalla de Trackear.php con javascript asincrono
+*/
 
 require_once 'registroTiempo_model.php';
 $db = new RegistroTiempo_Model("user");

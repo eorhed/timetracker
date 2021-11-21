@@ -7,6 +7,7 @@ ini_set('display_startup_errors', TRUE);
 <?php 
     require_once "app/views/header.php";
     
+    // Controla la sesión de usuario. Si no está logueado o no tiene cookie le devuelve a index
     if (!Session::manageSession() || !Session::isLogged())
         header("Location: index.php");
         

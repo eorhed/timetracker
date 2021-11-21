@@ -1,6 +1,7 @@
 <?php
     require_once "app/views/header.php";
     
+    // Controla la sesión de usuario. Si ya está logueado o tiene cookie le devuelve al dashboard
     if (Session::manageSession())
         header("Location: dashboard.php")
 ?>    

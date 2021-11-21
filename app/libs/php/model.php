@@ -1,8 +1,14 @@
 <?php
+/*
+*   Clase encargada de realizar la conexión a la BD y que será la clase padre de los modelos de la BD
+*/
 class Model{
     
     private $db;
 
+    /*
+    *   Constructor que crea la conexión con la BD
+    */
     function __construct($typeUser="user")
 	{
 		$fich_config = $_SERVER["DOCUMENT_ROOT"]."/timetracker/app/config/database.ini.php";
@@ -36,8 +42,9 @@ class Model{
 		}
 	}
 
-			//mysqli_close($this->db);
-
+    /*
+    *   Función que cierra la conexión a la BD
+    */
     function close()
     {
         $this->db->close();

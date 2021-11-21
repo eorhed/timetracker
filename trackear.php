@@ -1,6 +1,8 @@
 <?php require_once "app/views/header.php"; ?>
 
 <?php 
+
+    // Controla la sesión de usuario. Si no está logueado o no tiene cookie le devuelve a login
     if (!Session::manageSession() || !Session::isLogged())
         header("Location: login.php");
 ?>
@@ -19,10 +21,10 @@
                     $id_primera_actividad = $db->getPrimeraActividadConTareasUsuario(Session::get('idusuario'));
                     
 
-                    if (!empty($actividades) && is_integer($actividades) && $actividades == 0):
-                        echo "<div class='info-warning'>No tienes ninguna actividad creada todav&iacute;a.<br/> Para realizar un seguimiento de tiempo es necesario una actividad y una tarea. <br/>Crea tu primera actividad pulsando <a href='crear_actividad.php'>aqu&iacute;</a></div>";
+                    if (isset($actividades) && is_integer($actividades) && $actividades == 0):
+                        echo "<div class='info-warning'>No tienes ninguna actividad creada todav&iacute;a.<br/> Para realizar un seguimiento de tiempo es necesario una actividad y una tarea. <br/><br/><p>Crea tu primera actividad pulsando <a href='crear_actividad.php' style='color:#00bfa5;'>aqu&iacute;</a></p></div>";
                     elseif (!empty($id_primera_actividad) && is_integer($id_primera_actividad) && $id_primera_actividad == 0):
-                        echo "<div class='info-warning'>No tienes ninguna tarea creada todav&iacute;a.<br/> Para realizar un seguimiento de tiempo es necesario una actividad y una tarea. <br/>Crea tu primera actividad pulsando <a href='crear_tarea.php'>aqu&iacute;</a></div>";
+                        echo "<div class='info-warning'>No tienes ninguna tarea creada todav&iacute;a.<br/> Para realizar un seguimiento de tiempo es necesario una actividad y una tarea. <br/><br/><p>Crea tu primera actividad pulsando <a href='crear_tarea.php' style='color:#00bfa5;'>aqu&iacute;</a></p></div>";
                     else:
                 ?>
                 
@@ -79,15 +81,6 @@
                                             ?>
                                             </select>
                                 </li>
-                                <!-- <li> -->
-                                    <!-- <label for="actividad_lucrativa">Actividad lucrativa</label>
-                                    <input type="radio" name="actividad_lucrativa" id="actividad_lucrativa" value="Sí"> Sí
-                                    <input type="radio" name="actividad_lucrativa" id="actividad_lucrativa" value="No"> No -->
-
-                                    <!-- <label for="precio_hora">Precio por hora</label>
-                                    <input type="range" id="precio_hora" name="precio_hora" min=0 max=50 value="0" class="form-input-text" placeholder="Usuario" onLoad="javascript:actualizarPrecioHora();" onChange="javascript:actualizarPrecioHora();" />
-                                    <span id="info_precio_hora">0</span> € -->
-                                <!-- </li> -->
                             </ul>
                         </div>
                         <div class="bloque_D">
@@ -110,6 +103,7 @@
                                     <img class="btn-guardar-tiempo" onclick="guardarSeguimiento();" src="app/assets/img/stop-circle.svg" alt="Icono de pausar multimedia">
                                     <img class="btn-reproducir-tiempo" onclick="conmutarSeguimiento();" src="app/assets/img/play-circle.svg" alt="Icono de reproducir multimedia">
                                     <img class="btn-pausar-tiempo" onclick="conmutarSeguimiento();" src="app/assets/img/pause-circle.svg" alt="Icono de pausar multimedia">
+                                    <img class="btn-nuevo-seguimiento" onclick="comenzarSeguimiento();" src="app/assets/img/play-btn-fill.svg" alt="Icono de pausar multimedia">
                                 </div>
                             </div>
                         
