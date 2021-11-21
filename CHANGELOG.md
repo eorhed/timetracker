@@ -6,7 +6,12 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
-## [Timetracker v1.0.4 (2021-11-21)][1.0.5]
+## [Timetracker v1.0.6 (2021-11-21)][1.0.6]
+### Changed
+    - Arreglado fallo que impedia entrar en pantalla Administrar con el tipo usuario administrador (sesion.php)
+    - Añadida linea en INSTALLATION.md indicando las credenciales para entrar como administrador en la app
+
+## [Timetracker v1.0.5 (2021-11-21)][1.0.5]
 ### Changed
     - Permiso UPDATE añadido al tipo usuario TT_anonymous en el script de la BD (bd.sql)
 
@@ -146,6 +151,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[1.0.5]: https://github.com/eorhed/timetracker/commit/9fcbc86a017dbc1df5b01a7f9d255b3e0ab2b149
 [1.0.4]: https://github.com/eorhed/timetracker/commit/2c8d602fb543cd6852832d026113d2f1d8d6ad74
 [1.0.3]: https://github.com/eorhed/timetracker/commit/ec74f69fa4e191e9bfb68997779f3313acd7d2f7
 [1.0.2]: https://github.com/eorhed/timetracker/commit/1c9404ed6a6c4e422eb324342ca2ca94836f2adb

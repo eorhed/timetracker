@@ -45,6 +45,12 @@
 
 Navegador-> http://localhost/timetracker
 
+[Se recomienda desactivar el bloqueador de publicidad para usarlo]
+
+Para entrar como usuario administrador las credenciales son:
+-Email: admin@admin.com
+-Clave: Admin123_
+
 ## <br>Linux
 
 En proceso...

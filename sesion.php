@@ -111,7 +111,7 @@ class Session
 	*   Función que comprueba si el usuario es administrador del sistema
 	*/
 	static function isAdmin(){
-		return $_SESSION["tipo_usuario"] == "Admin";
+		return $_SESSION["tipo_usuario"] == "admin";
 	}
 }
 ?>
