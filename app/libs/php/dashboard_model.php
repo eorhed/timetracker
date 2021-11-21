@@ -102,7 +102,10 @@ class Dashboard_Model extends Model{
         $sql = "SELECT SUM(TIMESTAMPDIFF(HOUR,r.fecha_inicio,r.fecha_fin)*a.precio_x_hora) as num_horas "
             ."FROM usuarios u inner join actividades a inner join tareas t inner join registros r on "
             ."u.idusuario=a.idusuario and a.idactividad = t.idactividad and t.idtarea = r.idtarea WHERE u.idusuario = '{$idusuario}' and (a.precio_x_hora)>0";
-
+        
+        $sql = "SELECT SUM(r.duracion/3600*a.precio_x_hora) as num_horas "
+            ."FROM usuarios u inner join actividades a inner join tareas t inner join registros r on "
+            ."u.idusuario=a.idusuario and a.idactividad = t.idactividad and t.idtarea = r.idtarea WHERE u.idusuario = '{$idusuario}' and (a.precio_x_hora)>0";
 
         $query =  $this->db->query($sql);
         $results = array();

@@ -6,15 +6,23 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 ## [unreleased]
 
+## [Timetracker v1.0.3 (2021-11-21)][1.0.3]
+### Changed
+    - Modificado el formato de fecha al mostrar fechas en dashboard.php
+
+
 ## [Timetracker v1.0.2 (2021-11-21)][1.0.2]
 ### Added
     - Todas las funciones estan documentadas con su correspondiente comentario
 
+
 ## [Timetracker v1.0.1 (2021-11-20)][1.0.1]
 ### Added
     - Añadido manual de instalación de Timetracker (INSTALLATION.md)
+
 ### Changed
     - Modificado el script de BD para que añada bien los 3 tipos de usuario BD
+
 
 ## [Timetracker v1.0.0 (2021-11-20)][1.0.0]
 ### Added
@@ -24,9 +32,9 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
     - Añadido el acuerdo de consentimiento (registro.php)
     - Añadido ultimos 10 registros de seguimiento en Dashboard (dashboard.php)
 
-
 ### Changed
     - Retoques en varios archivos
+
 
 ## [Timetracker v0.9.0 (2021-11-19)][0.9.0]
 ### Added
@@ -37,10 +45,12 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 ### Changed
     - Modificada Crear Actividad
 
+
 ## [Timetracker v0.8.0 (2021-11-18)][0.8.0]
 ### Added
     - Añadida la página de Informes y Ver informe (informes.php y registroTiempo_model.php)
     - Añadida la funcionalidad del modelo de Informes (informes_model.php)
+
 ### Changed
     - Añadidas reglas CSS en el archivo de estilos (main.css)
 
@@ -48,38 +58,47 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 ## [Timetracker v0.7.0 (2021-11-17)][0.7.0]
 ### Added
     - Añadida la funcionalidad de Trackear (trackear.php y registroTiempo_model.php)
+    
 ### Changed
     - Cambios en los estilos (main.css)
+
 
 ## [Timetracker v0.6.2 (2021-11-17)][0.6.2]
 ### Changed
     - Modificado el archivo bd.sql
 
+
 ## [Timetracker v0.6.1 (2021-11-16)][0.6.1]
 ### Changed
     - Modificado el archivo header.php
+
 
 ## [Timetracker v0.6.0 (2021-11-16)][0.6.0]
 ### Added
     - Añadida la pantalla de Tareas con la lista de tareas del usuario
     - Añadida la clase Tareas_Model (tareas_model.php)
 
+
 ## [Timetracker v0.5.1 (2021-11-15)][0.5.1]
 ### Added
     - Añadida la pantalla de Crear Actividad (crear_actividad.php)
+
 
 ## [Timetracker v0.5.0 (2021-11-11)][0.5.0]
 ### Added
     - Añadida la pantalla de Actividades con la lista de actividades del usuario
     - Añadida la clase Actividades_Model (actividades_model.php)
 
+
 ## [Timetracker v0.4.2 (2021-10-20)][0.4.2]
 ### Added
     - Añadida la clase Model para poder conectar con la BD desde otras clases
 
+
 ## [Timetracker v0.4.1 (2021-10-19)][0.4.1]
 ### Changed
     - Añadida la base de datos de Timetracker (bd.sql)
+
 
 ## [Timetracker v0.4.0 (2021-10-19)][0.4.0]
 ### Added
@@ -96,6 +115,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 ## [Timetracker v0.2.1 (2021-10-14)][0.2.1]
 ### Added
     - Añadida la funcionalidad de la clase Sesion
+
 
 ## [Timetracker v0.1.0 (2021-10-13)][0.2.0]
 ### Added
@@ -118,6 +138,7 @@ Todos los cambios importantes de este proyecto serán documentados en este fiche
 
 
 [unreleased]: https://github.com/eorhed/timetracker/projects/1
+[1.0.2]: https://github.com/eorhed/timetracker/commit/1c9404ed6a6c4e422eb324342ca2ca94836f2adb
 [1.0.1]: https://github.com/eorhed/timetracker/commit/41b6fe6b24b398cf3c3848c7ac2ec018295a2896
 [1.0.0]: https://github.com/eorhed/timetracker/commit/d64182e06179733acf9e716d00eea4c5c1e76566
 [0.9.0]: https://github.com/eorhed/timetracker/commit/c053de53af304c5fdaf6156d5d17436fce15012c

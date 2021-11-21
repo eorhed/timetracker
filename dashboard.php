@@ -21,14 +21,6 @@ ini_set('display_startup_errors', TRUE);
                 <h1>Escritorio</h1>
                 <?php 
 
-                    // //Sesión
-                    // echo "ID: ". Session::get("idusuario")."<br>";
-                    // echo "Usuario: ". Session::get("usuario")."<br>";
-                    // echo "Email: ". Session::get("email")."<br>";
-                    // echo "Foto: ". Session::get("foto")."<br>";
-                    // echo "Last Activity: ". Session::get("last_activity")."<br>";
-                    // echo "Created: ". Session::get("created")."<br>";
-
                     $idusuario = Session::get("idusuario");
                     $db = new Dashboard_Model("user"); 
                     $num_actividades = $db->getNumTotalActividadesUsuario($idusuario);
@@ -54,7 +46,7 @@ ini_set('display_startup_errors', TRUE);
                     ?></li>
                     <li><?php 
                         if (isset($dinero_generado))
-                            echo "<a href='informes.php'><span class='numero-dashboard'>".$dinero_generado."</span><h2>euros generados</h2></a>";
+                            echo "<a href='informes.php'><span class='numero-dashboard'>". round($dinero_generado,2)."</span><h2>euros generados</h2></a>";
                     ?></li>
                 </ul>
             </div>
@@ -78,7 +70,7 @@ ini_set('display_startup_errors', TRUE);
                             $minutos = floor(($registro->duracion - ($horas * 3600)) / 60);
                             $segundos = $registro->duracion - ($horas * 3600) - ($minutos * 60);
                             
-                            echo "<li><div class='num-registro'>$cont</div><div class='actividad'>$registro->actividad</div><div class='tarea'>$registro->nombre</div><div class='duracion'>$horas h $minutos min $segundos s</div><div class='fecha-inicio'>$registro->fecha_inicio</div></li>";
+                            echo "<li><div class='num-registro'>$cont</div><div class='actividad'>$registro->actividad</div><div class='tarea'>$registro->nombre</div><div class='duracion'>$horas h $minutos min $segundos s</div><div class='fecha-inicio'>".substr($registro->fecha_inicio,8,2)."/".substr($registro->fecha_inicio,5,2) . "/" . substr($registro->fecha_inicio,0,4) . " " . substr($registro->fecha_inicio,11,2) . ":". substr($registro->fecha_inicio,14,2) . "</div></li>";
                             $cont++;
                         }
                         echo "<ul>";
